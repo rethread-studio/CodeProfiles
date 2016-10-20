@@ -9,5 +9,7 @@ More than 14 years after its creation, we were very much inspired by this very n
 #To see the CodeProfiles artwork
 
 `git clone https://github.com/DIVERSIFY-project/CodeProfiles.git`
+
 `mvn test`
+
 `appletviewer CodeProfiles.html`
