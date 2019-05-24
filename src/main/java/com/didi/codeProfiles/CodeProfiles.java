@@ -399,11 +399,11 @@ public class CodeProfiles extends Applet implements Runnable {
                              
                              programLines[programLineIndexAsWritten[drawnInsertionLine]+
                                           
-                                          drawnInsertionLineBackup].s.indexOf("//") != 0 &&
+                                drawnInsertionLineBackup].s.indexOf("//") != 0 &&
                              
-                             programLines[programLineIndexAsWritten[drawnInsertionLine]+
+                                programLines[programLineIndexAsWritten[drawnInsertionLine]+
                                           
-                                          drawnInsertionLineBackup].hasLineCall == false);  line(105);
+                                drawnInsertionLineBackup].hasLineCall == false);  line(105);
                     
                     
                     
@@ -441,7 +441,7 @@ public class CodeProfiles extends Applet implements Runnable {
             
             lastLine = programLines[programLineIndexAsWritten[
                                                               
-                                                              programTrace[drawnPC]]];  line(207);
+                programTrace[drawnPC]]];  line(207);
             
             drawnPC = (++drawnPC) % programTrace.length;  line(74);
             
@@ -461,7 +461,7 @@ public class CodeProfiles extends Applet implements Runnable {
                 
                 lineDrawnLarger = programLines[programLineIndexAsWritten[
                                                                          
-                                                                         programTrace[drawnPC]]]; line(208);
+                    programTrace[drawnPC]]]; line(208);
             
         }
         
@@ -533,9 +533,7 @@ public class CodeProfiles extends Applet implements Runnable {
             
             try {
                 
-                Thread.sleep(Math.max(0,
-                                      
-                                      15 - (System.currentTimeMillis() - lastUpdateTime)));  line(70);
+                Thread.sleep(15);  line(70);
                 
             } catch (Exception e) { e.printStackTrace();  }
             
@@ -669,7 +667,7 @@ public class CodeProfiles extends Applet implements Runnable {
             
             if (all || (programLines != null && (Math.abs(newBrightness -
                                                           
-                                                          programLines[programLineIndexAsWritten[i]].brightness) > .4)) &&
+                programLines[programLineIndexAsWritten[i]].brightness) > .4)) &&
                 
                 programLineIndexAsWritten[i] != 0) {
                 
@@ -693,7 +691,7 @@ public class CodeProfiles extends Applet implements Runnable {
                 
                 int greenComponent = (int) Math.min(150,
                                                     
-                                                    70 + programLines[index].brightness * 2);  line(149);
+                    70 + programLines[index].brightness * 2);  line(149);
                 
                 g.setColor(
                            
@@ -736,10 +734,6 @@ public class CodeProfiles extends Applet implements Runnable {
         }
         
     }
-    
-    
-    
-    
     
     //==============================================================================
     
@@ -831,9 +825,9 @@ public class CodeProfiles extends Applet implements Runnable {
                 
                 programLineIndexAsWritten[lastLineCallInProgram =
                                           
-                                          lines[i].lineAsWrittenIndex = Integer.parseInt(
+                    lines[i].lineAsWrittenIndex = Integer.parseInt(
                                                                                          
-                                                                                         lines[i].s.substring(lineCallPos + 5, lineCallEndPos))] = i;
+                        lines[i].s.substring(lineCallPos + 5, lineCallEndPos))] = i;
                 
                 line(81);
                 
@@ -951,7 +945,7 @@ public class CodeProfiles extends Applet implements Runnable {
             
             setFont(new Font("Courier", Font.PLAIN,
                              
-                             Math.max(1, size().width / 320)));  line(78);
+                             Math.max(1, 7)));  line(78);
             
             
             
@@ -1055,17 +1049,17 @@ public class CodeProfiles extends Applet implements Runnable {
             
             offscreenGraphics.setFont(
                                       
-                                      new Font(getFont().getName(), getFont().getStyle(), 12));  line(122);
+                new Font(getFont().getName(), getFont().getStyle(), 12));  line(122);
             
             offscreenGraphics.drawString(lineRecentlyDrawnLarger.s,  (int) Math.min(
                                                                                     
-                                                                                    size().width - lineDrawnLargerRatio *
+                size().width - lineDrawnLargerRatio *
                                                                                     
-                                                                                    getFontMetrics(offscreenGraphics.getFont()).
+                getFontMetrics(offscreenGraphics.getFont()).
                                                                                     
-                                                                                    stringWidth(lineRecentlyDrawnLarger.s.trim()),
+                stringWidth(lineRecentlyDrawnLarger.s.trim()),
                                                                                     
-                                                                                    lineRecentlyDrawnLarger.x), lineRecentlyDrawnLarger.y);  line(123);
+                lineRecentlyDrawnLarger.x), lineRecentlyDrawnLarger.y);  line(123);
             
             offscreenGraphics.setFont(getFont());  line(125);
             
@@ -1097,7 +1091,7 @@ public class CodeProfiles extends Applet implements Runnable {
                 
                 offscreenGraphics.drawString(programLines[index+backup].s,
                                              
-                                             programLines[index+backup].x, programLines[index+backup].y);
+                    programLines[index+backup].x, programLines[index+backup].y);
                 
                 line(86);
                 
@@ -1111,11 +1105,11 @@ public class CodeProfiles extends Applet implements Runnable {
                     
                     pastPCPositions.insertElementAt(
                                                     
-                                                    new Point(programLines[index+backup-1].x,
+                        new Point(programLines[index+backup-1].x,
                                                               
-                                                              programLines[index+backup-1].y),
+                        programLines[index+backup-1].y),
                                                     
-                                                    Math.max(0, pastPCPositions.size() + backup));
+                        Math.max(0, pastPCPositions.size() + backup));
                     
                 }  line(110);
                 
@@ -1159,17 +1153,17 @@ public class CodeProfiles extends Applet implements Runnable {
             
             offscreenGraphics.drawString(
                                          
-                                         programLines[drawnFixationLine].s.substring(0, drawnFixationPoint),
+                programLines[drawnFixationLine].s.substring(0, drawnFixationPoint),
                                          
-                                         (int) Math.min(size().width - lineDrawnLargerRatio *
+                    (int) Math.min(size().width - lineDrawnLargerRatio *
                                                         
-                                                        getFontMetrics(offscreenGraphics.
+                        getFontMetrics(offscreenGraphics.
                                                                        
-                                                                       getFont()).stringWidth(programLines[drawnFixationLine].s.trim()),
+                    getFont()).stringWidth(programLines[drawnFixationLine].s.trim()),
                                                         
-                                                        programLines[drawnFixationLine].x),
+                programLines[drawnFixationLine].x),
                                          
-                                         programLines[drawnFixationLine].y);  line(88);
+            programLines[drawnFixationLine].y);  line(88);
             
             
             
@@ -1185,19 +1179,19 @@ public class CodeProfiles extends Applet implements Runnable {
                 
                 pastFixationPositions.addElement(
                                                  
-                                                 new Point(programLines[drawnFixationLine].x +
+                    new Point(programLines[drawnFixationLine].x +
                                                            
-                                                           getFontMetrics(getFont()).stringWidth(
+                        getFontMetrics(getFont()).stringWidth(
                                                                                                  
-                                                                                                 programLines[drawnFixationLine].s.trim()),
+                            programLines[drawnFixationLine].s.trim()),
                                                            
-                                                           programLines[drawnFixationLine].y));  line(178);
+                        programLines[drawnFixationLine].y));  line(178);
                 
                 pastFixationPositions.addElement(
                                                  
-                                                 new Point(programLines[drawnFixationLine].x,
+                    new Point(programLines[drawnFixationLine].x,
                                                            
-                                                           programLines[drawnFixationLine].y));  line(201);
+                        programLines[drawnFixationLine].y));  line(201);
                 
             }
             
@@ -1231,7 +1225,7 @@ public class CodeProfiles extends Applet implements Runnable {
             
             Line insertionLine = programLines[programLineIndexAsWritten[
                                                                         
-                                                                        drawnInsertionLine]+drawnInsertionLineBackup];  line(148);
+                drawnInsertionLine]+drawnInsertionLineBackup];  line(148);
             
             
             
@@ -1241,22 +1235,22 @@ public class CodeProfiles extends Applet implements Runnable {
                 
                 offscreenGraphics.setFont(new Font(getFont().getName(),
                                                    
-                                                   getFont().getStyle(), 12));  line(146);
+                    getFont().getStyle(), 12));  line(146);
             
             
             
             offscreenGraphics.drawString(
                                          
-                                         insertionLine.s.substring(0, drawnInsertionPoint),
-                                         
-                                         (int) Math.min(size().width - lineDrawnLargerRatio *
-                                                        
-                                                        getFontMetrics(offscreenGraphics.getFont()).
-                                                        
-                                                        stringWidth(insertionLine.s.trim()),
-                                                        
-                                                        insertionLine.x), insertionLine.y);  line(90);
-            
+                insertionLine.s.substring(0, drawnInsertionPoint),
+                
+                (int) Math.min(size().width - lineDrawnLargerRatio *
+                            
+                            getFontMetrics(offscreenGraphics.getFont()).
+                            
+                            stringWidth(insertionLine.s.trim()),
+                            
+                            insertionLine.x), insertionLine.y);  line(90);
+
             
             
             //  remember the position if it's not a blank line
@@ -1271,18 +1265,18 @@ public class CodeProfiles extends Applet implements Runnable {
                 
                 pastInsertionPositions.addElement(
                                                   
-                                                  new Point(insertionLine.x, insertionLine.y));  line(199);
+                    new Point(insertionLine.x, insertionLine.y));  line(199);
                 
                 pastInsertionPositions.addElement(
                                                   
-                                                  new Point(insertionLine.x +
-                                                            
-                                                            getFontMetrics(getFont()).stringWidth(
-                                                                                                  
-                                                                                                  insertionLine.s.trim()),
-                                                            
-                                                            insertionLine.y));  line(185);
-                
+                    new Point(insertionLine.x +
+                            
+                            getFontMetrics(getFont()).stringWidth(
+                                                                    
+                            insertionLine.s.trim()),
+                            
+                            insertionLine.y));  line(185);
+
             }
             
             lastInsertionLine = insertionLine;  line(198);
@@ -1343,15 +1337,15 @@ public class CodeProfiles extends Applet implements Runnable {
             
             int lineBrightness = Math.min(140, 20 + i +
                                           
-                                          //  adjust to let short lines glow brightly    
-                                          
-                                          Math.max(0, 200 - pastPCPositions.size()));  line(211);
+                //  adjust to let short lines glow brightly    
+                
+                Math.max(0, 200 - pastPCPositions.size()));  line(211);
             
             
             
             offscreenGraphics.setColor(
                                        
-                                       new Color(lineBrightness/8, lineBrightness, lineBrightness/8));
+                new Color(lineBrightness/8, lineBrightness, lineBrightness/8));
             
             
             
@@ -1397,7 +1391,7 @@ public class CodeProfiles extends Applet implements Runnable {
             
             Line insertionLine = programLines[programLineIndexAsWritten[
                                                                         
-                                                                        drawnInsertionLine]+drawnInsertionLineBackup];  line(212);
+                drawnInsertionLine]+drawnInsertionLineBackup];  line(212);
             
             double lastStepRatio = (insertionLine.s.trim().length() == 0) ? 1. :
             
@@ -1423,11 +1417,11 @@ public class CodeProfiles extends Applet implements Runnable {
                 
                 int lineBrightness = Math.min(140, 20 + i*5 +
                                               
-                                              Math.max(0, 30 - insertionSpline.length)*5);  line(204);
+                    Math.max(0, 30 - insertionSpline.length)*5);  line(204);
                 
                 offscreenGraphics.setColor(
                                            
-                                           new Color(lineBrightness, lineBrightness, lineBrightness));
+                    new Color(lineBrightness, lineBrightness, lineBrightness));
                 
                 
                 
@@ -1451,9 +1445,9 @@ public class CodeProfiles extends Applet implements Runnable {
                 
                 Point p2, p1 = new Point(
                                          
-                                         (int) Math.round(insertionSpline[i][0].evaluate(0)),
+                    (int) Math.round(insertionSpline[i][0].evaluate(0)),
                                          
-                                         (int) Math.round(insertionSpline[i][1].evaluate(0)));  line(194);
+                    (int) Math.round(insertionSpline[i][1].evaluate(0)));  line(194);
                 
                 
                 
@@ -1461,9 +1455,9 @@ public class CodeProfiles extends Applet implements Runnable {
                     
                     p2 = new Point(
                                    
-                                   (int) Math.round(insertionSpline[i][0].evaluate(j / steps)),
+                        (int) Math.round(insertionSpline[i][0].evaluate(j / steps)),
                                    
-                                   (int) Math.round(insertionSpline[i][1].evaluate(j / steps)));
+                        (int) Math.round(insertionSpline[i][1].evaluate(j / steps)));
                     
                     line(195);
                     
@@ -1519,11 +1513,11 @@ public class CodeProfiles extends Applet implements Runnable {
                 
                 int lineBrightness = Math.min(120, 20 + (int) (i*1.5) +
                                               
-                                              Math.max(0, 80 - fixationSpline.length)*2);  line(203);
+                    Math.max(0, 80 - fixationSpline.length)*2);  line(203);
                 
                 offscreenGraphics.setColor(
                                            
-                                           new Color(lineBrightness, lineBrightness*7/8, lineBrightness/4));
+                    new Color(lineBrightness, lineBrightness*7/8, lineBrightness/4));
                 
                 
                 
@@ -1531,9 +1525,9 @@ public class CodeProfiles extends Applet implements Runnable {
                 
                 Point p2, p1 = new Point(
                                          
-                                         (int) Math.round(fixationSpline[i][0].evaluate(0)),
+                    (int) Math.round(fixationSpline[i][0].evaluate(0)),
                                          
-                                         (int) Math.round(fixationSpline[i][1].evaluate(0)));  line(191);
+                    (int) Math.round(fixationSpline[i][1].evaluate(0)));  line(191);
                 
                 
                 
@@ -1541,9 +1535,9 @@ public class CodeProfiles extends Applet implements Runnable {
                     
                     p2 = new Point(
                                    
-                                   (int) Math.round(fixationSpline[i][0].evaluate(j / steps)),
+                        (int) Math.round(fixationSpline[i][0].evaluate(j / steps)),
                                    
-                                   (int) Math.round(fixationSpline[i][1].evaluate(j / steps)));
+                        (int) Math.round(fixationSpline[i][1].evaluate(j / steps)));
                     
                     line(192);
                     
@@ -1609,9 +1603,9 @@ public class CodeProfiles extends Applet implements Runnable {
         
         int columns = 4, linesPerCol = (programLines.length+columns-1) / columns,
         
-        margin = w/8, colSpacing = columnWidth = (w - margin*2 - getFontMetrics(
+        margin = 25, colSpacing = columnWidth = (w - margin*2 - getFontMetrics(
                                                                                 
-                                                                                g.getFont()).stringWidth(" ")*100) / (columns - 1);  line(49);
+            g.getFont()).stringWidth(" ")*100) / (columns - 1);  line(49);
         
         double lineHeight = (h - margin*2) / (double) (linesPerCol+2);  line(50);
         
@@ -1663,7 +1657,7 @@ public class CodeProfiles extends Applet implements Runnable {
                 
                 g.drawString(
                              
-                             programLines[i].s, programLines[i].x, programLines[i].y);  line(47);
+                    programLines[i].s, programLines[i].x, programLines[i].y);  line(47);
                 
             }
             
@@ -1840,26 +1834,26 @@ public class CodeProfiles extends Applet implements Runnable {
         for (i = 0; i < n; i++) {
             
             coefficients[i][0] = new Cubic(((Point) v.elementAt(i)).x, DXs[i],
-                                           
-                                           3 * (((Point) v.elementAt(i+1)).x - ((Point) v.elementAt(i)).x) -
-                                           
-                                           2 * DXs[i] - DXs[i+1],
-                                           
-                                           2 * (((Point) v.elementAt(i)).x - ((Point) v.elementAt(i+1)).x) +
-                                           
-                                           DXs[i] + DXs[i+1]);  line(173);
+                
+                3 * (((Point) v.elementAt(i+1)).x - ((Point) v.elementAt(i)).x) -
+                
+                2 * DXs[i] - DXs[i+1],
+                
+                2 * (((Point) v.elementAt(i)).x - ((Point) v.elementAt(i+1)).x) +
+                
+                DXs[i] + DXs[i+1]);  line(173);
             
             
             
             coefficients[i][1] = new Cubic(((Point) v.elementAt(i)).y, DYs[i],
                                            
-                                           3 * (((Point) v.elementAt(i+1)).y - ((Point) v.elementAt(i)).y) -
-                                           
-                                           2 * DYs[i] - DYs[i+1],
-                                           
-                                           2 * (((Point) v.elementAt(i)).y - ((Point) v.elementAt(i+1)).y) +
-                                           
-                                           DYs[i] + DYs[i+1]);  line(174);
+                3 * (((Point) v.elementAt(i+1)).y - ((Point) v.elementAt(i)).y) -
+                
+                2 * DYs[i] - DYs[i+1],
+                
+                2 * (((Point) v.elementAt(i)).y - ((Point) v.elementAt(i+1)).y) +
+                
+                DYs[i] + DYs[i+1]);  line(174);
             
         }
         
