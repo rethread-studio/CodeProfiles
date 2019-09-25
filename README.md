@@ -13,3 +13,8 @@ git clone https://github.com/DIVERSIFY-project/CodeProfiles.git
 mvn test
 appletviewer CodeProfiles.html
 ```
+You can also watch a [video excerpt](https://github.com/DIVERSIFY-project/CodeProfiles/blob/master/CodeProfiles-short.mp4). It reads like this:
+- the green text in the background is the whole source code to run this piece of software art
+- the green lines show how the code executes (we can see loops, calls to other parts of the program, etc.)
+- the white lines show the order in which the code was written by the author
+- the orange lines show how a human reads the code, from top to bottom
