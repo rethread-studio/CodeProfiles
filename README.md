@@ -1,6 +1,6 @@
 # CodeProfiles
 
-This repository wraps into a Maven project an original piece of code and artwork by  [W. Bradford Paley](http://wbpaley.com/brad/).
+This repository wraps into a Maven project an original piece of code and artwork by  [W. Bradford Paley](http://wbradfordpaley.com/live/).
 
 The original source code can be found [here](http://artport.whitney.org/commissions/codedoc/Paley/code.html), hosted by the by the [Whitney Museum's portal to Internet art](http://whitney.org/Exhibitions/Artport). It was written on August 9-15 2002 for CODeDOC; commissioned by Christiane Paul, Curator at the Whitney Museum of American Art, NY USA.
 
