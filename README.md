@@ -18,3 +18,8 @@ You can also watch a [video excerpt](https://github.com/DIVERSIFY-project/CodePr
 - the green lines show how the code executes (we can see loops, calls to other parts of the program, etc.)
 - the white lines show the order in which the code was written by the author
 - the orange lines show how a human reads the code, from top to bottom
+
+
+## CheerpJ support
+
+Run `python -m http.server 8080`. Then go to `http://localhost:8080/cheerp.html`
