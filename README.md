@@ -6,7 +6,7 @@ The original source code can be found [here](http://artport.whitney.org/commissi
 
 More than 14 years after its creation, we were very much inspired by this very nice and cool art work. Putting it on github, we wanted to, hopefully, increase its visibility.
 
-#To see the CodeProfiles artwork
+#To see the CodeProfiles artwork, run the following commands. Requirements: [Maven](https://maven.apache.org/) and Java 8.
 
 ```
 git clone https://github.com/DIVERSIFY-project/CodeProfiles.git
@@ -20,6 +20,10 @@ You can also watch a [video excerpt](https://github.com/DIVERSIFY-project/CodePr
 - the orange lines show how a human reads the code, from top to bottom
 
 
-## CheerpJ support
+## Webassembly with CheerpJ
 
-Run `python -m http.server 8080`. Then go to `http://localhost:8080/cheerp.html`
+We have released a new version of CodeProfiles that uses [CheerpJ](https://cheerpj.com/) to run the original applet with Webassembly:
+```
+python -m http.server 8080
+go to `http://localhost:8080/cheerp.html`
+```
