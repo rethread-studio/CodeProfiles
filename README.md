@@ -13,6 +13,16 @@ git clone https://github.com/DIVERSIFY-project/CodeProfiles.git
 mvn test
 appletviewer CodeProfiles.html
 ```
+
+If you want to run using a higher Java version, you can set the -source and -target of the Java Compiler in the `pom.xml`.
+
+```
+<properties>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+</properties>
+```
+
 You can also watch a [video excerpt](https://github.com/DIVERSIFY-project/CodeProfiles/blob/master/CodeProfiles-short.mp4). It reads like this:
 - the green text in the background is the whole source code to run this piece of software art
 - the green lines show how the code executes (we can see loops, calls to other parts of the program, etc.)
