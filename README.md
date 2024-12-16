@@ -37,3 +37,4 @@ We have released a new version of CodeProfiles that uses [CheerpJ](https://cheer
 python -m http.server 8080
 go to `http://localhost:8080/cheerp.html`
 ```
+To ensure a good resolution, create the applet html element as big as possible, and adjust the body wrapper with a `zoom` < 1. The resolution is managed by the CSS engine of the browser. The larger the applet, the more time the piece needs to load.
