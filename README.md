@@ -6,21 +6,12 @@ The original source code can be found [here](http://artport.whitney.org/commissi
 
 More than 14 years after its creation, we were very much inspired by this very nice and cool art work. Putting it on github, we wanted to, hopefully, increase its visibility.
 
-#To see the CodeProfiles artwork, run the following commands. Requirements: [Maven](https://maven.apache.org/) and Java 8.
+#To see the CodeProfiles artwork, run the following commands. Requirements: [Maven](https://maven.apache.org/) and Java 11 or higher.
 
 ```
 git clone https://github.com/DIVERSIFY-project/CodeProfiles.git
-mvn test
-appletviewer CodeProfiles.html
-```
-
-If you want to run using a higher Java version, you can set the -source and -target of the Java Compiler in the `pom.xml`.
-
-```
-<properties>
-    <maven.compiler.source>11</maven.compiler.source>
-    <maven.compiler.target>11</maven.compiler.target>
-</properties>
+mvn clean install
+java -jar target/Applet.jar 
 ```
 
 You can also watch a [video excerpt](https://github.com/DIVERSIFY-project/CodeProfiles/blob/master/CodeProfiles-short.mp4). It reads like this:

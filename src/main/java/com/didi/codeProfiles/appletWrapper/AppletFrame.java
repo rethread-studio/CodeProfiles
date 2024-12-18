@@ -7,16 +7,21 @@ import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.util.Hashtable;
+import java.util.concurrent.CountDownLatch;
 
 public class AppletFrame extends Frame implements WindowListener {
     public static Window window;
+    private static CountDownLatch exitLatch;
 
     public AppletFrame(String paramString) {
         super(paramString);
         addWindowListener(this);
     }
 
-    public static void startApplet(Applet paramApplet, String paramString, Hashtable paramHashtable, int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+    public static void startApplet(Applet paramApplet, String paramString, Hashtable paramHashtable,
+                                   int paramInt1, int paramInt2, int paramInt3, int paramInt4,
+                                   CountDownLatch latch) {
+        exitLatch = latch;
         OurAppletContext localOurAppletContext = new OurAppletContext(paramApplet.getToolkit());
         OurAppletStub localOurAppletStub = new OurAppletStub(localOurAppletContext, paramHashtable);
         paramApplet.setStub(localOurAppletStub);
@@ -31,6 +36,9 @@ public class AppletFrame extends Frame implements WindowListener {
         window.requestFocus();
         window.addKeyListener(new KeyAdapter() {
             public void keyPressed(KeyEvent paramAnonymousKeyEvent) {
+                if (exitLatch != null) {
+                    exitLatch.countDown();
+                }
                 Runtime.getRuntime().exit(0);
             }
         });
@@ -45,6 +53,9 @@ public class AppletFrame extends Frame implements WindowListener {
     }
 
     public void windowClosing(WindowEvent paramWindowEvent) {
+        if (exitLatch != null) {
+            exitLatch.countDown();
+        }
         Runtime.getRuntime().exit(0);
     }
 
@@ -60,13 +71,3 @@ public class AppletFrame extends Frame implements WindowListener {
     public void windowOpened(WindowEvent paramWindowEvent) {
     }
 }
-
-
-
-/* Location:           C:\Users\W Bradford Paley\Desktop\stampCycle.jar
-
- * Qualified Name:     com.metrowerks.AppletFrame
-
- * JD-Core Version:    0.7.0.1
-
- */
