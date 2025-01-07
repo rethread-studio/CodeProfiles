@@ -23,7 +23,11 @@ mvn clean install
 java -jar target/Applet.jar 
 ```
 
-You can adjust the size of the frame in the src/appletWrapper/Main.java
+You can adjust the size of the frame by passing them as arguments. 
+
+```
+java -jar target/Applet.jar -w 1280 -h 720
+```
 
 ## CodeProfiles restored with Webassembly and CheerpJ
 

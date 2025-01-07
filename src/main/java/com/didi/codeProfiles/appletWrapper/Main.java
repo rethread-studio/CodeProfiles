@@ -11,15 +11,13 @@ public class Main {
     public static String[] args = {
             "com.didi.codeProfiles.CodeProfiles",
             "filename=src/main/java/com/didi/codeProfiles/CodeProfiles.java",
-            "width=1280",
-            "height=720",
     };
 
     public static void main(String[] args) {
         new CommandLine(new RunApplet()).execute(args);
     }
 
-    public static void appletFunc(CountDownLatch latch) {
+    public static void startApplet(CountDownLatch latch, int width, int height) {
         String[] paramArrayOfString = args;
         Hashtable localHashtable = new Hashtable();
         for (int i = 1; i < paramArrayOfString.length; i++) {
@@ -43,13 +41,11 @@ public class Main {
                 System.out.println("can't find Applet: " + str1);
             }
         } catch (Exception e) {
-            System.out.println(e.toString());
+            System.out.println(e);
         }
 
         Rectangle localRectangle = new Rectangle();
-        localRectangle.setBounds(0, 0,
-                Integer.parseInt((String) localHashtable.get("WIDTH"), 10),
-                Integer.parseInt((String) localHashtable.get("HEIGHT"), 10));
+        localRectangle.setBounds(0, 0, width, height);
         if (localApplet != null) {
             AppletFrame.startApplet(
                     localApplet,
@@ -67,10 +63,25 @@ public class Main {
     @CommandLine.Command(name = "applet", mixinStandardHelpOptions = true, version = "0.1")
     private static class RunApplet implements Runnable {
         private final CountDownLatch latch = new CountDownLatch(1);
+        @CommandLine.Option(
+                names = {"-w", "--frame-width"},
+                paramLabel = "WIDTH",
+                description = "Width of the frame",
+                defaultValue = "1280"
+        )
+        int width;
+
+        @CommandLine.Option(
+                names = {"-h", "--frame-height"},
+                paramLabel = "HEIGHT",
+                description = "Height of the frame",
+                defaultValue = "720"
+        )
+        int height;
 
         @Override
         public void run() {
-            appletFunc(latch);
+            startApplet(latch, width, height);
             try {
                 latch.await();
             } catch (InterruptedException e) {
